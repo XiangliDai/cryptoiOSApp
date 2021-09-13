@@ -74,21 +74,21 @@ extension Decimal {
         let formatter = NumberFormatter()
         formatter.generatesDecimalNumbers = true
         formatter.minimumFractionDigits = 2
-        formatter.maximumFractionDigits = 2
+        formatter.maximumFractionDigits = 4
         return formatter.string(from: self as NSDecimalNumber)
     }
 }
 
 extension String{
     var formattedTime: String{
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.000Z"
+        let dateFormatterFrom = DateFormatter()
+        dateFormatterFrom.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.000Z"
 
-        let dateFormatterPrint = DateFormatter()
-        dateFormatterPrint.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateFormatterTo = DateFormatter()
+        dateFormatterTo.dateFormat = "yyyy-MM-dd HH:mm:ss"
 
-        let date: Date? = dateFormatterGet.date(from: self)
-        return dateFormatterPrint.string(from: date!)
+        let date: Date? = dateFormatterFrom.date(from: self)
+        return dateFormatterTo.string(from: date!)
         
     }
 }

@@ -20,7 +20,7 @@ class CryptoNetworkManager {
     let mapUrl = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest"
     let quoteUrl = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest"
     let metaUrl = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/info"
-    let apiKey = "your app key"
+    let apiKey = "you app key"
     var listDelegate:CryptoListNetworkManagerDelegate?
     var detailDelegate:CryptoDetailNetworkManagerDelegate?
     var selectedId :String = ""
@@ -30,7 +30,7 @@ class CryptoNetworkManager {
             let session = URLSession(configuration: .default)
             
             let task = session.dataTask(with: url) { data, _, error in
-                self.processResponse(data: data, error: error, method: self.parseMapJSON)
+                self.processResponse(data: data, error: error, processor: self.parseMapJSON)
             }
             task.resume()
         }
@@ -51,14 +51,14 @@ class CryptoNetworkManager {
         }
     }
     
-     private func processResponse(data: Data?, error: Error?, method:(_ data1: Data) -> Void){
+     private func processResponse(data: Data?, error: Error?, processor:(_ safeData: Data) -> Void){
         if error != nil {
             print(error!)
             return
         }
         
         if let safeData = data {
-            method(safeData)
+            processor(safeData)
         }
     }
     
@@ -72,7 +72,7 @@ class CryptoNetworkManager {
             if let url = URL(string: quoteUrl+apiKey+"&id=" + self.selectedId){
                 let session = URLSession(configuration: .default)
                 let task = session.dataTask(with: url) { data, response, error in
-                    self.processResponse(data: data, error: error, method: self.parseQuoteJSON)
+                    self.processResponse(data: data, error: error, processor: self.parseQuoteJSON)
                     dispatchGroup.leave()
                 }
                 task.resume()
@@ -81,10 +81,9 @@ class CryptoNetworkManager {
             dispatchGroup.enter()
             
             if let url = URL(string: metaUrl+apiKey+"&id=" + self.selectedId){
-                print(url.absoluteString)
                 let session = URLSession(configuration: .default)
                 let task = session.dataTask(with: url) { data, response, error in
-                    self.processResponse(data: data, error: error, method: self.parseMetaJSON)
+                    self.processResponse(data: data, error: error, processor: self.parseMetaJSON)
                     dispatchGroup.leave()
                 }
                 task.resume()

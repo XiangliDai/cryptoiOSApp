@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2kf-vW-R88">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Crypto-->
+        <scene sceneID="ljU-lo-C4K">
+            <objects>
+                <tableViewController id="vNM-X1-3Jv" customClass="CryptoListViewController" customModule="CryptoCurrencyiOSApp" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eI9-w9-qTD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="3Vp-sW-odo">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" systemColor="systemTealColor"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="vNM-X1-3Jv" id="BxU-fc-kFS"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cryptoCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cryptoCell" textLabel="aYo-Vv-SoR" detailTextLabel="d4S-tH-fnP" style="IBUITableViewCellStyleSubtitle" id="5vI-y7-adM">
+                                <rect key="frame" x="0.0" y="68.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5vI-y7-adM" id="R5l-Mz-1tT">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aYo-Vv-SoR">
+                                            <rect key="frame" x="20" y="6" width="25" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d4S-tH-fnP">
+                                            <rect key="frame" x="20" y="22.5" width="40.5" height="13.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vNM-X1-3Jv" id="joJ-lB-eSG"/>
+                            <outlet property="delegate" destination="vNM-X1-3Jv" id="tAa-aS-LUw"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Crypto" id="vjX-pz-9on"/>
+                    <connections>
+                        <segue destination="CLK-h8-O6y" kind="show" identifier="gotoDetail" id="EkQ-9Q-r5b"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hYh-W9-f2G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1500.0000000000002" y="77.678571428571431"/>
+        </scene>
+        <!--Crypto Detail View Controller-->
+        <scene sceneID="gqp-Ao-f3y">
+            <objects>
+                <viewController id="CLK-h8-O6y" customClass="CryptoDetailViewController" customModule="CryptoCurrencyiOSApp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oWW-zB-ePJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DGf-5Q-B5k">
+                                <rect key="frame" x="13" y="125" width="388" height="87.5"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fys-98-XHS">
+                                <rect key="frame" x="50" y="235" width="314" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTk-pS-BpF">
+                                <rect key="frame" x="50" y="294" width="314" height="55"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="WSG-As-9po">
+                                <rect key="frame" x="50" y="465" width="314" height="16"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="volume:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD9-s7-2pv">
+                                        <rect key="frame" x="0.0" y="0.0" width="132" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9C9-Ni-STX">
+                                        <rect key="frame" x="182" y="0.0" width="132" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="1i1-rZ-p6P">
+                                <rect key="frame" x="50" y="505" width="314" height="16"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price change(1h):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="CE9-mv-pKP">
+                                        <rect key="frame" x="0.0" y="0.0" width="132" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="priceCh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLu-18-0YE">
+                                        <rect key="frame" x="182" y="0.0" width="132" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="last updated:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGC-Sq-5R6">
+                                <rect key="frame" x="50" y="549" width="314" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="3h3-Ch-W4H">
+                                <rect key="frame" x="50" y="377" width="314" height="16"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="last price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucf-G8-IvW">
+                                        <rect key="frame" x="0.0" y="0.0" width="132" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lastPrice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhv-1R-Ob4">
+                                        <rect key="frame" x="182" y="0.0" width="132" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cI9-lr-rnL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Fys-98-XHS" firstAttribute="top" secondItem="DGf-5Q-B5k" secondAttribute="bottom" constant="25" id="93d-MX-RQY"/>
+                            <constraint firstItem="1i1-rZ-p6P" firstAttribute="top" secondItem="WSG-As-9po" secondAttribute="bottom" constant="25" id="G0M-aw-ZaP"/>
+                            <constraint firstItem="cI9-lr-rnL" firstAttribute="trailing" secondItem="Fys-98-XHS" secondAttribute="trailing" constant="50" id="HS5-jY-ik7"/>
+                            <constraint firstItem="cI9-lr-rnL" firstAttribute="trailing" secondItem="1i1-rZ-p6P" secondAttribute="trailing" constant="50" id="HcD-3A-U5G"/>
+                            <constraint firstItem="cI9-lr-rnL" firstAttribute="trailing" secondItem="3h3-Ch-W4H" secondAttribute="trailing" constant="50" id="HjL-19-LrG"/>
+                            <constraint firstItem="NTk-pS-BpF" firstAttribute="top" secondItem="Fys-98-XHS" secondAttribute="bottom" constant="10" id="K5r-7d-IoI"/>
+                            <constraint firstItem="3h3-Ch-W4H" firstAttribute="leading" secondItem="cI9-lr-rnL" secondAttribute="leading" constant="50" id="PCT-IM-9pp"/>
+                            <constraint firstItem="DGf-5Q-B5k" firstAttribute="top" secondItem="cI9-lr-rnL" secondAttribute="top" constant="40" id="QiD-z2-hRd"/>
+                            <constraint firstItem="cI9-lr-rnL" firstAttribute="trailing" secondItem="cGC-Sq-5R6" secondAttribute="trailing" constant="50" id="R6Q-MS-bT9"/>
+                            <constraint firstItem="WSG-As-9po" firstAttribute="top" secondItem="3h3-Ch-W4H" secondAttribute="bottom" constant="25" id="RNX-cC-QU6"/>
+                            <constraint firstItem="Fys-98-XHS" firstAttribute="leading" secondItem="cI9-lr-rnL" secondAttribute="leading" constant="50" id="UXA-20-23n"/>
+                            <constraint firstItem="3h3-Ch-W4H" firstAttribute="top" secondItem="NTk-pS-BpF" secondAttribute="bottom" constant="25" id="Z8k-5D-mvN"/>
+                            <constraint firstItem="1i1-rZ-p6P" firstAttribute="leading" secondItem="cI9-lr-rnL" secondAttribute="leading" constant="50" id="ZEh-yi-3iA"/>
+                            <constraint firstItem="WSG-As-9po" firstAttribute="leading" secondItem="cI9-lr-rnL" secondAttribute="leading" constant="50" id="gJx-y4-1hY"/>
+                            <constraint firstItem="DGf-5Q-B5k" firstAttribute="centerX" secondItem="oWW-zB-ePJ" secondAttribute="centerX" id="gtB-Bo-xfm"/>
+                            <constraint firstItem="cGC-Sq-5R6" firstAttribute="leading" secondItem="cI9-lr-rnL" secondAttribute="leading" constant="50" id="mXT-KX-uG5"/>
+                            <constraint firstItem="cGC-Sq-5R6" firstAttribute="top" secondItem="1i1-rZ-p6P" secondAttribute="bottom" constant="25" id="u4A-XA-ihj"/>
+                            <constraint firstItem="NTk-pS-BpF" firstAttribute="leading" secondItem="cI9-lr-rnL" secondAttribute="leading" constant="50" id="w03-1o-od0"/>
+                            <constraint firstItem="cI9-lr-rnL" firstAttribute="trailing" secondItem="WSG-As-9po" secondAttribute="trailing" constant="50" id="wP3-Pj-jlo"/>
+                            <constraint firstItem="cI9-lr-rnL" firstAttribute="trailing" secondItem="NTk-pS-BpF" secondAttribute="trailing" constant="50" id="xky-HO-6jr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="MtB-l5-HuN"/>
+                    <connections>
+                        <outlet property="cryptoDesc" destination="NTk-pS-BpF" id="j9X-M7-N0h"/>
+                        <outlet property="cryptoLogo" destination="DGf-5Q-B5k" id="UGb-Vu-D3H"/>
+                        <outlet property="cryptoName" destination="Fys-98-XHS" id="TxJ-bD-PLd"/>
+                        <outlet property="lastPrice" destination="yhv-1R-Ob4" id="ChY-2b-qHS"/>
+                        <outlet property="lastUpated" destination="cGC-Sq-5R6" id="OQh-pf-rxj"/>
+                        <outlet property="priceChange1H" destination="SLu-18-0YE" id="wg8-hL-hdt"/>
+                        <outlet property="volume" destination="9C9-Ni-STX" id="54Q-yS-qih"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JY6-OB-CCa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2697.1014492753625" y="86.383928571428569"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0ZM-rk-V7i">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2kf-vW-R88" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="w0E-dD-dvl">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemTealColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vNM-X1-3Jv" kind="relationship" relationship="rootViewController" id="3Xh-OS-kQZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9OW-yf-b6q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="589.85507246376812" y="77.678571428571431"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" systemColor="systemBlueColor"/>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
